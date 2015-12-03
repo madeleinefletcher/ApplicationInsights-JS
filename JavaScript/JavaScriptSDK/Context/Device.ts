@@ -67,7 +67,15 @@
 
             // Device type is a dimension in our data platform
             // Setting it to 'Browser' allows to separate client and server dependencies/exceptions
-            this.type = "Browser";
+            this.type = "Browser";            
+            
+            //get resolution
+            if (typeof screen !== "undefined" && screen.width && screen.height) {
+                this.resolution = screen.width + "X" + screen.height;
+            }
+
+            //get locale
+            this.locale = (typeof screen !== "undefined" && navigator.browserLanguage) ? navigator.browserLanguage : "unknown";
         }
     }
 }
